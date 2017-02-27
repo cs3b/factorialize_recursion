@@ -1,10 +1,16 @@
 # if you write a class treat is as a class 
 class Factorialize < Struct.new(:n)
   def to_s
-    factorialize(n)
+    number
+  end
+  
+  def number
+    @number ||= factorialize(n)
   end
 
-  def self.factorialize(n)
+  private 
+  
+  def factorialize(n)
     if(n < 0)
       -1
     elsif(n == 0)
